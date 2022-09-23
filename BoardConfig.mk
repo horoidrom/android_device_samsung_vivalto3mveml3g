@@ -49,8 +49,8 @@ BOARD_HAVE_BLUETOOTH := true
 SPRD_WCNBT_CHISET := marlin
 BOARD_SPRD_WCNBT_MARLIN := true
 
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/configs/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := $(PLATFORM_PATH)/configs/bluetooth/libbt_vndcfg.txt
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/configs/bluetooth
+#BOARD_BLUEDROID_VENDOR_CONF := $(PLATFORM_PATH)/configs/bluetooth/libbt_vndcfg.txt
 
 # WIFI configs
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -103,8 +103,10 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.sc8830
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_CONFIG := cyanogen_vivalto3mveml3g_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/vivalto3mveml3g
+#TARGET_KERNEL_CONFIG := cyanogen_vivalto3mveml3g_defconfig
+#TARGET_KERNEL_SOURCE := kernel/samsung/vivalto3mveml3g
+TARGET_PREBUILT_KERNEL   := device/samsung/vivalto3mveml3g/ker.img
+TARGET_PREBUILT_DTB      := device/samsung/vivalto3mveml3g/dt.img
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/samsung/vivalto3mveml3g/dt.img
 
 # Init
