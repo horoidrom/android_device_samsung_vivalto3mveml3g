@@ -46,25 +46,25 @@ COMMON_GLOBAL_CFLAGS += -DSEC_PRODUCT_FEATURE_RIL_CALL_DUALMODE_CDMAGSM
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/vivalto3mveml3g/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/vivalto3mveml3g/bluetooth/libbt_vndcfg.txt
+SPRD_WCNBT_CHISET := marlin
+BOARD_SPRD_WCNBT_MARLIN := true
 
-# Wifi
-BOARD_WLAN_DEVICE := bcmdhd
-BOARD_WLAN_DEVICE_REV := bcm4343
-WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/configs/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := $(PLATFORM_PATH)/configs/bluetooth/libbt_vndcfg.txt
+
+# WIFI configs
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/wifi/bcmdhd_sta.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcmdhd_apsta.bin"
-WIFI_DRIVER_NVRAM_PATH_PARAM := "/sys/module/dhd/parameters/nvram_path"
-WIFI_DRIVER_NVRAM_PATH := "/system/etc/wifi/nvram_net.txt"
-WIFI_BAND := 802_11_ABG
-BOARD_HAVE_SAMSUNG_WIFI := true
+WPA_SUPPLICANT_VERSION      := VER_2_1_DEVEL
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_sprdwl
+BOARD_HOSTAPD_DRIVER        := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_sprdwl
+BOARD_WLAN_DEVICE           := sc2341
+WIFI_DRIVER_FW_PATH_PARAM   := "/data/misc/wifi/fwpath"
+WIFI_DRIVER_FW_PATH_STA     := "sta_mode"
+WIFI_DRIVER_FW_PATH_P2P     := "p2p_mode"
+WIFI_DRIVER_FW_PATH_AP      := "ap_mode"
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/sprdwl.ko"
+WIFI_DRIVER_MODULE_NAME     := "sprdwl"
 
 # Hardware rendering
 BOARD_EGL_CFG := device/samsung/vivalto3mveml3g/configs/egl.cfg
